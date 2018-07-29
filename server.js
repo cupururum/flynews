@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser')
 const expressValidator = require('express-validator')
 const flash = require('connect-flash')
 const session = require('express-session')
-const PORT = process.env.PORT || 3037;
+const PORT = process.env.PORT || 3001;
 const getTrends = require("./controllers/getTrends")
 const intervalsTest = require("./setIntervalTest")
 
