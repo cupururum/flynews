@@ -48,7 +48,7 @@ app.use(express.static("client/build"));
 // Add routes, both API and view
 app.use(routes);
 
-//setInterval(getTrends , 1000*120)
+setInterval(getTrends , 1000*3600)
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gettrends");
 
