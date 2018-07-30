@@ -45,10 +45,9 @@ app.use(function(req,res, next){
 
 
 // Serve up static assets
+//app.use(express.static('client/build'));
+app.use(express.static(__dirname + '/public'))
 
-app.use(express.static('client/build'));
-
-  
 // Add routes, both API and view
 app.use(routes);
 
