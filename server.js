@@ -9,7 +9,7 @@ const expressValidator = require('express-validator')
 const flash = require('connect-flash')
 const path = require('path')
 const session = require('express-session')
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3003;
 const getTrends = require("./controllers/getTrends")
 const intervalsTest = require("./setIntervalTest")
 
@@ -46,7 +46,16 @@ app.use(function(req,res, next){
 
 // Serve up static assets
 
-app.use(express.static(__dirname + '/client/build/'))
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+// Send every request to the React app
+// Define any API routes before this runs
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // Add routes, both API and view
 app.use(routes);

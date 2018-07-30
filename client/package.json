@@ -2,7 +2,7 @@
   "name": "gettrends",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:3003",
   "dependencies": {
     "axios": "^0.16.2",
     "newsapi": "^2.2.2",
